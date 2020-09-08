@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}Manutenção Cadastro de Fornecedores{% endblock %}
+
+{% block main %}
+    {% if erro %}
+       <center>
+       <p style="border-style: dotted "><font style="color: red; font-size: 24px;"><b>{{ mensagem }}</b></font></p></center>
+    {% endif %}
+    {% if errocod %}
+        <center><pstyle="border-style: dotted "><font style="color: red; font-size: 24px;"><b>CÓDIGO INVÁLIDO - CÓDIGO DEVE SER: {{ultimo}} </b></font>></p></center>
+    {% endif %}
+    <BR>
+    <p><h4>Ultimo fornecedor cadastrado:  {{ ultimo }}</h4></p>
+    <form  method="POST" class="negrito">
+       {% csrf_token %}
+        <main class="container">
+             <div class="'row">
+                 <div class="col=6">
+                    {{ form|bootstrap }}
+                     <hr>
+                     <center>
+                       <button type="submit" class="btn btn-info" width=90 height=100> Salvar </button>
+                       <button name="cancelar" class="btn btn-danger" value="cancelar" type="submit" size=15><a href="{% url 'url_cadastrofor' %}">cancelar</a></button>
+                     </center>
+                 </div>
+             </div>
+       </main>
+    </form>
+ 
+{% endblock %}

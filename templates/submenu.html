@@ -1,0 +1,67 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "teste1.css" %}" >
+</head>
+<body>
+    <div class="menu-container">
+        <ul class="menu clearfix">
+            <li><a href="#">Cadastros</a>
+                <!-- Nível 1 -->
+                <!-- submenu -->
+                <ul class="sub-menu clearfix">
+                    <li><a href="#">Centro</a>
+                        <!-- Nível 2 -->
+                        <!-- submenu do submenu -->
+                        <ul class="sub-menu">
+                            <li><a href="#">Manutenção</a>
+                                <!-- Nível 3 -->
+                                <!-- submenu do submenu do submenu -->
+                                <ul class="sub-menu">
+                                    <li><a href="#">Novo     </a></li>
+                                    <li><a href="#">Editar   </a></li>
+                                    <li><a href="#">Excluir  </a></li>
+                                    <li><a href="#">Consultar</a></li>
+                                    <li><a href="#">Pesquisar</a></li>
+                                    <li><a href="#">Pesquisar</a></li>
+                                </ul><!-- submenu do submenu do submenu -->
+                            </li>
+                            <li><a href="#">Relatórios</a></li>
+                            <li><a href="#">Sub4 A</a></li>
+                            <li><a href="#">Sub5 A</a></li>
+                            <li><a href="#">Sub6 A</a></li>
+                        </ul><!-- submenu do submenu -->
+                    </li>
+                    <li><a href="{% url 'url_cadastrofor' %}">Fornecedores</a></li>
+                    <li><a href="#">Clientes</a></li>
+                    <li><a href="#">Unidades</a></li>
+                    <li><a href="#">Contas </a></li>
+                </ul><!-- submenu -->
+            </li>
+            <li><a href="#">Contas a Pagar</a>
+                <ul class="sub-menu clearfix">
+                    <li><a href="#"></a>Contas
+                       <ul class="sub-menu">
+                            <li><a href="#">Manutenção</a>
+                            </li>
+                            <li><a href="#">Relatórios</a></li>
+                            <li><a href="#">Sub4 A</a></li>
+                            <li><a href="#">Sub5 A</a></li>
+                            <li><a href="#">Sub6 A</a></li>
+                        </ul><!-- submenu do submenu -->
+
+                    </li>
+                    <li><a href="#"></a>Contas a Distância</li>
+                </ul>
+            </li>
+
+            <li><a href="#">Item  3</a></li>
+            <li><a href="#">Item  4</a></li>
+        </ul>
+    </div>
+ </body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %} CONTA BANCÁRIA - INCLUSÃO{% endblock %}
+
+{% block main %}
+    <P ><center><h3>CADASTRO DE CONTAS BANCÁRIAS - INCLUSÃO</h3></center></P>
+    <form  method="POST" class="negrito">
+       {% csrf_token %}
+       <div float=left>
+       {{ form|bootstrap }}
+       </div>
+       <hr>
+       <center>
+         <button type="submit" class="btn btn-info" width=90 height=100> Salvar </button>
+         <button name="cancelar" class="btn btn-danger" value="cancelar" type="submit" size=15> Cancelar </button>
+       </center>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load l10n %}
+{% block title %}Contas a Pagar{% endblock %}
+
+{% block main %}
+   <center>
+       <BR>
+       <p><h4>CONTAS A PAGAR</h4></p>
+       <br>
+       <TABLE   style="width:80%" border=1 >
+            <TR>
+                <TD style="background-color: #dfff80">VENCIMENTO</TD>
+                <TD style="background-color: #dfff80; text-align: center">FORNECEDOR</TD>
+                <TD style="background-color: #dfff80; text-align: center">VALOR  -  R$</TD>
+                <TD style="background-color: #dfff80; text-align: center">CENTRO DE CUSTO</TD>
+                <TD style="background-color: #dfff80; text-align: center">CONTA BANCÁRIA</TD>
+                <TD style="background-color: #dfff80; text-align: center">SIT.</TD>
+                <TD style="background-color: #dfff80; text-align: center">X-Excluir</TD>
+                <TD style="background-color: #dfff80; text-align: center">$-Lançar</TD>
+                <TD>
+                     <form action="" method="GET">
+                        {% csrf_token %}
+                        <button type="submit" value="novo" name="botao"> Novo </button>
+                     </form>
+                </TD>
+            </TR>
+        {% for contas in contas %}
+            <TR>
+            <TD class="fonte" class="texto" style="background-color:#ffff99" ;> {{ contas.pagvenc }} </TD>
+            <TD class="fonte" style="background-color:#ffff99;text-align:center; margin=5px"> <a href="{% url 'url_altpagar' contas.pagnume %}">{{contas.pagcodf}}</a></TD>
+            <TD class="fonte" style="background-color:#ffff99;text-align:right; margin=5px"> {{ contas.pagvalor|floatformat:2 }} </TD>
+            <TD class="fonte" style="background-color:#ffff99;text-align:center; margin=5px"> {{ contas.pagcent }} </TD>
+            <TD class="fonte" style="background-color:#ffff99;text-align:center; margin=5px"> {{ contas.pagconta }} </TD>
+            <TD class="fonte" style="background-color:#ffff99;text-align:center">{{ contas.pagsitu }}</TD>
+            <TD class="fonte" style="background-color:#ffff99;width:100px"> <a href="{% url 'url_excpagar' contas.pagnume %}"><img src="{% static "apaga.jpg"  %}" alt="Excluir"/></a> </TD>
+            <TD class="fonte" style="background-color:#ffff99;width:100px"> <a href="{% url 'url_lctpagar' contas.pagnume %}"><img src="{% static "sifrao.jpg"  %}"/></a> </TD>
+            </TR>
+        {% endfor %}
+        </TABLE>
+   </center>
+{% endblock%}

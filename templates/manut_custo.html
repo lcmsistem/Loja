@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Centro de Custo{% endblock %}
+
+{% block main %}
+    <form  method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info"> Salvar </button>
+        <button name="cancelar" class="btn btn-info" value="cancelar" type="submit"> cancelar </button>
+     </form>    
+{% endblock %}

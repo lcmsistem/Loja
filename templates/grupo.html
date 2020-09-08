@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Cadastro de Grupos de Produtos{% endblock %}
+
+{% block main %}
+
+<br>
+<div style='margin-left: 120px;'>
+     <form action="" method="GET">
+        {% csrf_token %}
+         <button type="submit" value="menu" name="botao">-- Novo --</button>
+     </form>
+</div>
+<center>
+    <TAble border="1">
+        <TR>
+            <TD style="background-color: #66ff66" >CÓDIGO DO GRUPO</TD>
+            <TD style="background-color: #66ff66; text-align: center">DESCRIÇÃO</TD>
+            <td style="background-color: #66ff66; text-align: center"> AÇÃO </A></td>
+        </TR>
+    {% for grupo in grupo %}
+        <TR>
+        <TD style="background-color:#ccffcc;width:100px"> <a href="{% url 'url_altgrupo' grupo.grupo%}"><font size=2>{{grupo.grupo}}</font></a></TD>
+
+        <TD style="background-color:#ccffcc;width:300px"><center> <font size=2>{{ grupo.nome  }} </font></center></TD>
+        <TD style="background-color:#ccffcc;width:100px"> <a href="{% url 'url_excgrupo' grupo.grupo %}"><img src="{% static "apaga.jpg"  %}" alt="Excluir"/></a> </TD>
+
+        </TR>
+    {% endfor %}
+    </TABLE>
+</center>
+
+ </center>
+
+ {% endblock %}

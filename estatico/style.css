@@ -1,0 +1,61 @@
+.menu {
+	margin: 0px;
+}
+
+.menu ul{
+	padding: 0px;
+	top:50px;
+	margin-left: 150px;
+}
+
+.menu li{
+	background-color: yellowgreen;
+	float: left;
+	width: 200px;
+	height: 40px;
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
+	position: relative;
+	margin: 0px;
+}
+
+.menu ul li:hover{
+	background-color: yellow;
+}
+
+.menu ul ul{
+	display: none;
+}
+
+.menu ul li:hover > ul{
+	display:block;
+	margin: 0;
+}
+
+.menu ul ul ul{
+	margin-left: 202px;
+	top: 0px;
+	position: absolute;
+}
+
+.menu ul ul li:hover{
+	background-color: silver;   /* azul claro */
+}
+
+.menu ul ul ul li:hover{
+	background-color: silver;   /* azul - terceiro menu*/
+}
+
+.menu a {
+	text-decoration: none;
+}
+
+.menu a:hover {
+    color: navy;
+}
+
+.menu ul ul ul li{
+	background-color: navy;  /*verde claro*/
+}

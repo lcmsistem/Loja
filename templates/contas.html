@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Cadastro de Contas Bancárias{% endblock %}
+
+{% block main %}
+
+<br>
+<center>
+<div style='margin-left: 120px;'>
+     <form action="{% url 'url_incconta' %}" method="GET">
+        {% csrf_token %}
+         <button type="submit" value="incluir" name="botao"> Nova Conta </button>
+     </form>
+</div>
+    <br>
+    <TAble style="width:70%" border="1">
+        <TR>
+            <TD style="background-color: lightblue" >CONTA Nº</TD>
+            <TD style="background-color: lightblue; text-align: center">BANCO</TD>
+            <TD style="background-color: lightblue; text-align: center">TITULAR</TD>
+            <TD style="background-color: lightblue; text-align: center">SALDO</TD>
+            <TD style="background-color: lightblue; text-align: center">LANÇAMENTOS</TD>
+        </TR>
+    {% for contas in contas %}
+        <TR>
+        <TD style="width:100px"> <a href="{% url 'url_altconta' contas.conta %}"><font size=2>{{contas.conta}}</font></a></TD>
+        <TD><center> <font size=2>{{ contas.banco  }} </font></center></TD>
+        <TD style="width:300px"><center> <font size=2>{{ contas.obs1  }} </font></center></TD>
+        <TD style="width:150px"><center> <font size=2>{{ contas.saldofinal|floatformat:2 }} </font></center></TD>
+        <TD class="fonte" style="background-color:#ffff99;width:100px"> <a href="{% url 'url_lancamento' contas.conta%}"><img src="{% static "lanca.png"  %}" alt="Lançamentos"/></a> </TD>
+        </TR>
+    {% endfor %}
+    </TABLE>
+</center>
+
+{% endblock %}

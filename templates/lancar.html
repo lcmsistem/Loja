@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmacao {% endblock %}
+
+{% block main %}
+    <br>
+    <br>
+    <h4 style="border-style: solid; padding:15px"><center>Tem certeza que deseja lançar este débito na Conta? : </center></h4>
+    <br>
+    <br>
+    <p class="verde">Número.....: - {{conta.pagnume}}</p>
+    <p class="verde">Vencimento.: - {{conta.pagvenc}}</p>
+    <p class="verde">Credor.....: - {{conta.pagcodf}}</p>
+    <p class="verde">Valor......: - {{conta.pagvalor|floatformat:2}}</p>
+    <p class="verde">Conta Bancária:  {{conta.pagconta}}</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <center>
+        <button type="submit" class="btn btn-danger" name="lancar" value="lancar">Lançar</button>
+        <button type="submit" class="btn btn-danger" name="cancelar" value="cancelar">Cancela</button>
+        </center>
+    </form>
+
+
+
+{% endblock %}

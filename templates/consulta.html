@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Pagina de Teste{% endblock %}
+
+{% block main %}
+<br>
+    <p><center><h4>Consulta de fornecedor</h4></p>
+    <table border="2">
+        <TR>
+            <TD class="td_header">CODIGO</TD>
+            <TD class="td_header">NOME</TD>
+            <TD class="td_header">CIDADE</TD>
+        </TR>
+    {% for Fornecedor in lista %}
+       <tr style="height:15px">
+           <TD style="width:100px">  {{ Fornecedor.codf }}  </TD>
+           <TD style="width:400px"><b> {{Fornecedor.nome}} </b></TD>
+           <TD style="width:280px">{{Fornecedor.cidade}}</TD>
+           <TD style="width:30px; margin:4px"> <a href="{% url 'url_updatefor' Fornecedor.codf %}"><img src="{% static "edita.jpg"  %}" alt="Excluir"/></a></TD>
+       </tr>
+    {% endfor %}
+      </table>
+<br>
+    <p><a href="{% url 'url_cadastrofor' %}"><h4>Voltar</h4></a></p>
+    </center>
+
+{% endblock %}

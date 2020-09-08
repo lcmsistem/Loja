@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}Contas a Pagar - Filtrar{% endblock %}
+
+{% block main %}
+<br><br><br><br><br>
+<center>
+<table  border=1">
+    <tr>
+        <td height="30px" style="width:40px; text-align:center; background-color:yellow">DATA INICIAL</td>
+        <td height="30px" style=" text-align:center; background-color:yellow">DATA FINAL</td>
+    </tr>
+    <form method="GET" action="{% url 'url_pagar' %}">
+       {% csrf_token %}
+        <tr>
+          <td height="40px"><INPUt style="text-align:center" type="date" name="inicio" value="{{ inicio }}" SIZE=15></INPUt></td>
+          <td height="40px"><INPUt style="text-align:center" type="date" name="fim" value="{{ fim }}" SIZE=15></INPUt></td>
+       </tr>
+        <tr>
+            <td height="60px" colspan="2">
+            <button type="submit" class="btn btn-info" name="consultar" value="consultar">Consulta</button>
+            </td>
+        </tr>
+
+   </form>
+</table>
+    <br>
+</center>
+
+{% endblock %}

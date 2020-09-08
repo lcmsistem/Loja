@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmacao {% endblock %}
+
+{% block main %}
+    <br>
+    <br>
+    <h4 style="border-style: solid; padding:15px"><center>Tem certeza que deseja excluir o Fornecedor :  {{ fornecedor.nome }} {{ centro.nome }} </center></h4>
+    <br>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <center>
+        <button type="submit" class="btn btn-danger" name="excluir" value="excluir">Exclui</button>
+        <button type="submit" class="btn btn-danger" name="cancelar" value="cancelar">Cancela</button>
+        </center>
+    </form>
+
+
+
+{% endblock %}
+

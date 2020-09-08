@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Contas Bancárias - Lançamentos{% endblock %}
+
+{% block main %}
+
+<br>
+<center>
+    <br>
+    <TAble style="width:60%" border="1">
+        <TR>
+            <TD style="background-color: lightblue" >CONTA Nº</TD>
+            <TD style="background-color: lightblue; text-align: center">DATA</TD>
+            <TD style="background-color: lightblue; text-align: center">HISTORICO</TD>
+            <TD style="background-color: lightblue; text-align: center">DOCUMENTO</TD>
+            <TD style="background-color: lightblue; text-align: center">VALOR</TD>
+        </TR>
+    {% for lanca in lanca %}
+        <TR>
+        <TD style="width:100px"> <font size=2>{{lanca.conta}}</font></TD>
+        <TD style="width:300px"><center> <font size=2>{{ lanca.dia  }} </font></center></TD>
+        <TD style="width:300px"><center> <font size=2>{{ lanca.historico  }} </font></center></TD>
+        <TD style="width:300px"><center> <font size=2>{{ lanca.documento }} </font></center></TD>
+        <TD style="width:300px"><center> <font size=2>{{ lanca.valor|floatformat:2 }} </font></center></TD>
+        </TR>
+    {% endfor %}
+    </TABLE>
+</center>
+
+{% endblock %}

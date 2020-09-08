@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cadastro de Fornecedores{% endblock %}
+
+{% block main %}
+   <center>
+       <br>
+       <form method="GET" action="{% url 'url_consultafor' %}">
+           {% csrf_token %}
+           <INPUt type="text" name="busca" SIZE=70></INPUt>
+           <button type="submit" class="btn btn-info" name="consultar" value="consultar">Consulta</button>
+       </form>
+       <br>
+       <TABLE  style="width:80%" border=1 >
+            <TR>
+                <TD style="background-color: lightblue">CÓDIGO</TD>
+                <TD style="background-color: lightblue; text-align: center">NOME</TD>
+                <TD style="background-color: lightblue; text-align: center">CIDADE</TD>
+                <TD style="background-color: lightblue; text-align: center">CADASTRO</TD>
+            </TR>
+        {% for Fornecedor in Fornecedor %}
+            <TR>    
+            <TD class="texto"> {{ Fornecedor.codf }} </TD>
+            <TD> <a href="{% url 'url_updatefor' Fornecedor.codf %}">{{Fornecedor.nome}}</a></TD>
+            <TD> {{ Fornecedor.cidade }} </TD>
+            <TD> {{ Fornecedor.cadastro }} </TD>
+            <TD style="background-color: lightblue; text-align: center"><a href="{% url 'url_newfor' %}"><img src="{% static "mais.jpg"  %}" alt="Novo"></a> </TD>
+            <TD style="background-color: lightblue; text-align: center"><a href="{% url 'url_excfor' Fornecedor.codf %}"><img src="{% static "apaga.jpg"  %}" alt="Excluir"></a> </TD>
+            </TR>                 
+        {% endfor %}
+        </TABLE>
+   </center>
+{% endblock%}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <br>
+        <TAble border >
+             <TR>
+                 <TD>CÓDIGO</TD>
+                 <TD>NOME</TD>
+                 <TD>CNPJ</TD>
+             </TR>
+         {% for Fornecedor in vsql %}
+             <TR>    
+             <TD> {{ Fornecedor.codf }} </TD>
+             <TD> <a href="{% url 'url_updatefor' Fornecedor.codf %}">{{Fornecedor.nome}}</a></TD>
+             <TD> {{ Fornecedor.cnpj }} </TD>
+             </TR>                 
+         {% endfor %}
+         </TABLE>
+        </center>
+</body>
+</html>

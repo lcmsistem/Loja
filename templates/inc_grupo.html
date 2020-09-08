@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %} Menu Horizontal Dropdown {% endblock %}
+
+{% block main %}
+    {% if erro %}
+       <center>
+       <p style="border-style: dotted "><font style="color: red; font-size: 24px;"><b>>>>   GRUPO JÁ EXISTE   <<<</b></font></p></center>
+    {% endif %}
+    <P ><center><h3>CADASTRO DE GRUPO DE PROTUDOS - INCLUSÃO</h3></center></P>
+    <form  method="POST" class="negrito">
+       {% csrf_token %}
+       <div float=left>
+       {{ form|bootstrap }}
+       </div>
+       <hr>
+       <center>
+         <button type="submit" class="btn btn-info" width=90 height=100> Salvar </button>
+         <button name="cancelar" class="btn btn-danger" value="cancelar" type="submit" size=15> Cancelar </button>
+       </center>
+    </form>
+
+
+{% endblock %}
